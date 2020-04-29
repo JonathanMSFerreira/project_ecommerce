@@ -20,7 +20,7 @@ public class CarrinhoProdutoController {
     @GetMapping()
     public ResponseEntity get() {
      
-    	List<CarrinhoProdutoDTO> carrinhos = service.getCarrinhoProdutos();
+    	List<CarrinhoProduto> carrinhos = service.getCarrinhoProdutos();
         return ResponseEntity.ok(carrinhos);
     
     }
@@ -28,7 +28,7 @@ public class CarrinhoProdutoController {
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
     
-    	CarrinhoProdutoDTO carrinho = service.getCarrinhoProdutoById(id);
+    	CarrinhoProduto carrinho = service.getCarrinhoProdutoById(id);
         return ResponseEntity.ok(carrinho);
     }
 
@@ -44,7 +44,7 @@ public class CarrinhoProdutoController {
     @Secured({ "ROLE_ADMIN" })
     public ResponseEntity post(@RequestBody CarrinhoProduto carrinho) {
 
-        CarrinhoProdutoDTO c = service.insert(carrinho);
+    	CarrinhoProduto c = service.insert(carrinho);
 
         URI location = getUri(c.getId());
         return ResponseEntity.created(location).build();

@@ -9,11 +9,10 @@ import javax.persistence.OneToMany;
 import org.modelmapper.ModelMapper;
 
 import com.ecommerce.domain.carrinhos.CarrinhoProduto;
-import com.ecommerce.domain.categorias.CategoriaProduto;
-import com.ecommerce.domain.corproduto.CorProduto;
+import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
+import com.ecommerce.domain.cortamproduto.CorTamProduto;
 import com.ecommerce.domain.favoritos.Favorito;
 import com.ecommerce.domain.fotos.FotoProduto;
-import com.ecommerce.domain.tamanhoproduto.TamanhoProduto;
 
 
 public class CorDTO {
@@ -24,7 +23,7 @@ public class CorDTO {
 	private String cor;
 	
 
-    private List<CorProduto> produtos;
+    private List<CorTamProduto> produtos;
 	
 		
 
@@ -50,11 +49,11 @@ public class CorDTO {
 		this.cor = cor;
 	}
 
-	public List<CorProduto> getProdutos() {
+	public List<CorTamProduto> getProdutos() {
 		return produtos;
 	}
 
-	public void setProdutos(List<CorProduto> produtos) {
+	public void setProdutos(List<CorTamProduto> produtos) {
 		this.produtos = produtos;
 	}
 

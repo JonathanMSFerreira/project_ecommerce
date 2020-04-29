@@ -1,4 +1,4 @@
-package com.ecommerce.domain.categorias;
+package com.ecommerce.domain.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,31 +10,28 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categorias")
-public class CategoriaController {
+@RequestMapping("/clientes")
+public class UserController {
     
 	
 	@Autowired
-    private CategoriaService service;
+    private UserService service;
 
+	
     @GetMapping()
     public ResponseEntity get() {
      
-    	List<CategoriaDTO> categorias = service.getCategorias();
-        return ResponseEntity.ok(categorias);
+    	List<User> clientes = service.getClientes();
+        return ResponseEntity.ok(clientes);
     
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity get(@PathVariable("id") Long id) {
-    
-    	CategoriaDTO categoria = service.getCategoriaById(id);
-        return ResponseEntity.ok(categoria);
-    }
-    
-    
-    
-    
+//    @GetMapping("/{id}")
+//    public ResponseEntity get(@PathVariable("id") Long id) {
+//    
+//    	CorDTO cor = service.getCoresById(id);
+//        return ResponseEntity.ok(cor);
+//    }
 
 //    @GetMapping("/tipo/{tipo}")
 //    public ResponseEntity getCarrosByTipo(@PathVariable("tipo") String tipo) {
@@ -44,22 +41,20 @@ public class CategoriaController {
 //                ResponseEntity.ok(carros);
 //    }
 
-    @PostMapping
- //   @Secured({ "ROLE_ADMIN" })
-    public ResponseEntity post(@RequestBody Categoria categoria) {
-
-     	
-    	
-        CategoriaDTO c = service.insert(categoria);
-
-        URI location = getUri(c.getId());
-        return ResponseEntity.created(location).build();
-    }
-
-    private URI getUri(Long id) {
-        return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(id).toUri();
-    }
+//    @PostMapping
+//    @Secured({ "ROLE_ADMIN" })
+//    public ResponseEntity post(@RequestBody Cor cor) {
+//
+//        CorDTO c = service.insert(cor);
+//
+//        URI location = getUri(c.getId());
+//        return ResponseEntity.created(location).build();
+//    }
+//
+//    private URI getUri(Long id) {
+//        return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+//                .buildAndExpand(id).toUri();
+//    }
 //
 //    @PutMapping("/{id}")
 //    public ResponseEntity put(@PathVariable("id") Long id, @RequestBody Produto produto) {
@@ -76,10 +71,10 @@ public class CategoriaController {
     
     
  
-   // @Secured({ "ROLE_ADMIN" })
-    @DeleteMapping("/{id}")
-    public ResponseEntity delete(@PathVariable("id") Long id) {
-        service.delete(id);
-        return ResponseEntity.ok().build();
-    }
+//    @Secured({ "ROLE_ADMIN" })
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity delete(@PathVariable("id") Long id) {
+//        service.delete(id);
+//        return ResponseEntity.ok().build();
+//    }
 }

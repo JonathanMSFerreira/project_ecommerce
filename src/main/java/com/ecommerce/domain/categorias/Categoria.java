@@ -5,12 +5,15 @@ package com.ecommerce.domain.categorias;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
 
 
 
@@ -25,17 +28,12 @@ public class Categoria {
 	private String titulo;
 	
 	
-	private String urlFoto;
+	private byte[] foto;
 	
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     private List<CategoriaProduto> categorias;
 	
-	
-	
-	
-	
-
 
 	public Long getId() {
 		return id;
@@ -45,14 +43,6 @@ public class Categoria {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-
-
-
-
-	
-
 
 	public String getTitulo() {
 		return titulo;
@@ -64,13 +54,17 @@ public class Categoria {
 	}
 
 
-	public String getUrlFoto() {
-		return urlFoto;
+	
+	
+	
+
+	public byte[] getFoto() {
+		return foto;
 	}
 
 
-	public void setUrlFoto(String urlFoto) {
-		this.urlFoto = urlFoto;
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
 	}
 
 

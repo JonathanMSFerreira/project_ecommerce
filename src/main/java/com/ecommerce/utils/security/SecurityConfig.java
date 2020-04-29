@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //TESTES
                 .antMatchers(HttpMethod.GET, 
                 		"/api/v1/login","/cargaDados"
-                		,"/produtos/**"
+                		,"/**"
                 		
                 		
                 		).permitAll()
@@ -53,14 +53,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 ///
                 .antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**")
                 .permitAll()
-                .anyRequest().authenticated()
+               // .anyRequest().authenticated()
                 .and().csrf().disable()
-                .addFilter(new JwtAuthenticationFilter(authManager))
-                .addFilter(new JwtAuthorizationFilter(authManager, userDetailsService))
-                .exceptionHandling()
-                .accessDeniedHandler(accessDeniedHandler)
-                .authenticationEntryPoint(unauthorizedHandler)
-                .and()
+               // .addFilter(new JwtAuthenticationFilter(authManager))
+               // .addFilter(new JwtAuthorizationFilter(authManager, userDetailsService))
+               // .exceptionHandling()
+               // .accessDeniedHandler(accessDeniedHandler)
+               // .authenticationEntryPoint(unauthorizedHandler)
+               // .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
 

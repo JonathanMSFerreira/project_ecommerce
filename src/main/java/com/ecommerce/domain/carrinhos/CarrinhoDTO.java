@@ -9,11 +9,10 @@ import javax.persistence.OneToMany;
 import org.modelmapper.ModelMapper;
 
 import com.ecommerce.domain.carrinhos.CarrinhoProduto;
-import com.ecommerce.domain.categorias.CategoriaProduto;
-import com.ecommerce.domain.corproduto.CorProduto;
+import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
+import com.ecommerce.domain.cortamproduto.CorTamProduto;
 import com.ecommerce.domain.favoritos.Favorito;
 import com.ecommerce.domain.fotos.FotoProduto;
-import com.ecommerce.domain.tamanhoproduto.TamanhoProduto;
 
 
 public class CarrinhoDTO {

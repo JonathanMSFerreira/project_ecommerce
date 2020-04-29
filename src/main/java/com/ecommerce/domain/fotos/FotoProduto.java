@@ -6,7 +6,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.ecommerce.domain.cortamproduto.CorTamProduto;
 import com.ecommerce.domain.produtos.Produto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -18,10 +20,13 @@ public class FotoProduto {
     private Long id;
 
   
-	private String urlFoto;
+	private byte[] foto;
 	
+	
+
+	@JsonIgnore
 	@ManyToOne
-    private Produto produto;
+    private CorTamProduto corTamProduto;
 
 
 	public Long getId() {
@@ -34,23 +39,24 @@ public class FotoProduto {
 	}
 
 
-	public Produto getProduto() {
-		return produto;
+	
+	public CorTamProduto getCorTamProduto() {
+		return corTamProduto;
 	}
 
 
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setCorTamProduto(CorTamProduto corTamProduto) {
+		this.corTamProduto = corTamProduto;
 	}
 
 
-	public String getUrlFoto() {
-		return urlFoto;
+	public byte[] getFoto() {
+		return foto;
 	}
 
 
-	public void setUrlFoto(String urlFoto) {
-		this.urlFoto = urlFoto;
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
 	}
 
 

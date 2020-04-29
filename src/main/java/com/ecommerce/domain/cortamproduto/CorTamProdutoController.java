@@ -1,4 +1,4 @@
-package com.ecommerce.domain.categorias;
+package com.ecommerce.domain.cortamproduto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,31 +10,27 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/categorias")
-public class CategoriaController {
+@RequestMapping("/corTamProdutos")
+public class CorTamProdutoController {
     
 	
 	@Autowired
-    private CategoriaService service;
+    private CorTamProdutoService service;
 
     @GetMapping()
     public ResponseEntity get() {
      
-    	List<CategoriaDTO> categorias = service.getCategorias();
-        return ResponseEntity.ok(categorias);
+    	List<CorTamProduto> cores = service.getCorTamProdutos();
+        return ResponseEntity.ok(cores);
     
     }
 
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
     
-    	CategoriaDTO categoria = service.getCategoriaById(id);
-        return ResponseEntity.ok(categoria);
+    	CorTamProduto cor = service.getCorTamProdutoById(id);
+        return ResponseEntity.ok(cor);
     }
-    
-    
-    
-    
 
 //    @GetMapping("/tipo/{tipo}")
 //    public ResponseEntity getCarrosByTipo(@PathVariable("tipo") String tipo) {
@@ -45,12 +41,10 @@ public class CategoriaController {
 //    }
 
     @PostMapping
- //   @Secured({ "ROLE_ADMIN" })
-    public ResponseEntity post(@RequestBody Categoria categoria) {
+    @Secured({ "ROLE_ADMIN" })
+    public ResponseEntity post(@RequestBody CorTamProduto corTamProduto) {
 
-     	
-    	
-        CategoriaDTO c = service.insert(categoria);
+    	CorTamProduto c = service.insert(corTamProduto);
 
         URI location = getUri(c.getId());
         return ResponseEntity.created(location).build();
@@ -76,7 +70,7 @@ public class CategoriaController {
     
     
  
-   // @Secured({ "ROLE_ADMIN" })
+    @Secured({ "ROLE_ADMIN" })
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable("id") Long id) {
         service.delete(id);

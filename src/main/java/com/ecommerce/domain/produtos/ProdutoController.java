@@ -41,7 +41,7 @@ public class ProdutoController {
 //    }
 
     @PostMapping
-    @Secured({ "ROLE_ADMIN" })
+  //  @Secured({ "ROLE_ADMIN" })
     public ResponseEntity post(@RequestBody Produto produto) {
 
         ProdutoDTO c = service.insert(produto);
@@ -70,7 +70,7 @@ public class ProdutoController {
     
     
  
-    @Secured({ "ROLE_ADMIN" })
+   // @Secured({ "ROLE_ADMIN" })
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable("id") Long id) {
         service.delete(id);

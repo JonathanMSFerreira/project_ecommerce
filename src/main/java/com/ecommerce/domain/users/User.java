@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.ecommerce.domain.carrinhos.Carrinho;
-import com.ecommerce.domain.categorias.CategoriaProduto;
+import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
 import com.ecommerce.domain.enderecos.Endereco;
 import com.ecommerce.domain.favoritos.Favorito;
 

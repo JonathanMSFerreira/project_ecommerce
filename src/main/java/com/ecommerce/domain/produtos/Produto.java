@@ -1,6 +1,6 @@
 package com.ecommerce.domain.produtos;
 
-import lombok.Data;
+
 import lombok.NoArgsConstructor;
 
 import java.util.List;
@@ -13,62 +13,63 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.ecommerce.domain.carrinhos.CarrinhoProduto;
-import com.ecommerce.domain.categorias.CategoriaProduto;
-import com.ecommerce.domain.corproduto.CorProduto;
+import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
+import com.ecommerce.domain.cortamproduto.CorTamProduto;
 import com.ecommerce.domain.favoritos.Favorito;
 import com.ecommerce.domain.fotos.FotoProduto;
-import com.ecommerce.domain.tamanhoproduto.TamanhoProduto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @NoArgsConstructor
-
 @Entity
 public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
+    private String sku;
+    
     private String titulo;
   
     private String descricao;
     
-    private String urlFoto;
+    private byte[] fotoPrincipal;
     
-    private Double menorPreco;
+    private Double precoCompra;
+    
+     
+    private Double precoVenda;
+    
     
     private Boolean emPromocao;
     
-    private Double maiorPreco;
+    private Double precoPromocao;
+    
+     
+    private Integer qtdTotal;
     
     
-    
-    
+
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<FotoProduto> fotos;
-	
-   
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<CorProduto> cores;
+    private List<CorTamProduto> corTamProdutos;
     
   
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<TamanhoProduto> tamanhos;
-
     
+    @JsonIgnore
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private List<Favorito> favoritos;
     
     
+    @JsonIgnore
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private List<CarrinhoProduto> carrinhos;
     
     
 	
+    @JsonIgnore
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private List<CategoriaProduto> categorias;
-	
-	
-	
 	
 	
 		
@@ -90,18 +91,16 @@ public class Produto {
 	public void setFavoritos(List<Favorito> favoritos) {
 		this.favoritos = favoritos;
 	}
-	public List<TamanhoProduto> getTamanhos() {
-		return tamanhos;
+
+	
+	public List<CorTamProduto> getCorTamProdutos() {
+		return corTamProdutos;
 	}
-	public void setTamanhos(List<TamanhoProduto> tamanhos) {
-		this.tamanhos = tamanhos;
+	public void setCorTamProdutos(List<CorTamProduto> corTamProdutos) {
+		this.corTamProdutos = corTamProdutos;
 	}
-	public List<CorProduto> getCores() {
-		return cores;
-	}
-	public void setCores(List<CorProduto> cores) {
-		this.cores = cores;
-	}
+	
+
 	public Boolean getEmPromocao() {
 		return emPromocao;
 	}
@@ -114,6 +113,8 @@ public class Produto {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -126,29 +127,47 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getUrlFoto() {
-		return urlFoto;
+
+	
+	
+	public byte[] getFotoPrincipal() {
+		return fotoPrincipal;
 	}
-	public void setUrlFoto(String urlFoto) {
-		this.urlFoto = urlFoto;
+	public void setFotoPrincipal(byte[] fotoPrincipal) {
+		this.fotoPrincipal = fotoPrincipal;
 	}
-	public Double getMenorPreco() {
-		return menorPreco;
+
+	
+	
+	public String getSku() {
+		return sku;
 	}
-	public void setMenorPreco(Double menorPreco) {
-		this.menorPreco = menorPreco;
+	public void setSku(String sku) {
+		this.sku = sku;
 	}
-	public Double getMaiorPreco() {
-		return maiorPreco;
+	public Double getPrecoCompra() {
+		return precoCompra;
 	}
-	public void setMaiorPreco(Double maiorPreco) {
-		this.maiorPreco = maiorPreco;
+	public void setPrecoCompra(Double precoCompra) {
+		this.precoCompra = precoCompra;
 	}
-	public List<FotoProduto> getFotos() {
-		return fotos;
+	public Double getPrecoVenda() {
+		return precoVenda;
 	}
-	public void setFotos(List<FotoProduto> fotos) {
-		this.fotos = fotos;
+	public void setPrecoVenda(Double precoVenda) {
+		this.precoVenda = precoVenda;
+	}
+	public Double getPrecoPromocao() {
+		return precoPromocao;
+	}
+	public void setPrecoPromocao(Double precoPromocao) {
+		this.precoPromocao = precoPromocao;
+	}
+	public Integer getQtdTotal() {
+		return qtdTotal;
+	}
+	public void setQtdTotal(Integer qtdTotal) {
+		this.qtdTotal = qtdTotal;
 	}
 	@Override
 	public int hashCode() {

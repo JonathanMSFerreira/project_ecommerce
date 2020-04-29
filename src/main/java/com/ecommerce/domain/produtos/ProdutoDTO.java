@@ -6,11 +6,11 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 
 import com.ecommerce.domain.carrinhos.CarrinhoProduto;
-import com.ecommerce.domain.categorias.CategoriaProduto;
-import com.ecommerce.domain.corproduto.CorProduto;
+import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
+import com.ecommerce.domain.cortamproduto.CorTamProduto;
 import com.ecommerce.domain.favoritos.Favorito;
 import com.ecommerce.domain.fotos.FotoProduto;
-import com.ecommerce.domain.tamanhoproduto.TamanhoProduto;
+
 
 
 public class ProdutoDTO {
@@ -22,7 +22,7 @@ public class ProdutoDTO {
 	  
 	    private String descricao;
 	    
-	    private String urlFoto;
+	    private byte[] fotoPrincipal;
 	    
 	    private Double menorPreco;
 	    
@@ -30,14 +30,13 @@ public class ProdutoDTO {
 	    
 	    private Double maiorPreco;
 	    
+	    private Integer qtdEstoque;
 	  
 	    private List<FotoProduto> fotos;
 		
-	   
-	    private List<CorProduto> cores;
-	    
 	  
-	    private List<TamanhoProduto> tamanhos;
+	  
+	    private List<CorTamProduto> corTamProdutos;
 
 	    
 	 
@@ -63,6 +62,16 @@ public class ProdutoDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
+	
+
+	public Integer getQtdEstoque() {
+		return qtdEstoque;
+	}
+
+	public void setQtdEstoque(Integer qtdEstoque) {
+		this.qtdEstoque = qtdEstoque;
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -80,12 +89,15 @@ public class ProdutoDTO {
 		this.descricao = descricao;
 	}
 
-	public String getUrlFoto() {
-		return urlFoto;
+
+	
+
+	public byte[] getFotoPrincipal() {
+		return fotoPrincipal;
 	}
 
-	public void setUrlFoto(String urlFoto) {
-		this.urlFoto = urlFoto;
+	public void setFotoPrincipal(byte[] fotoPrincipal) {
+		this.fotoPrincipal = fotoPrincipal;
 	}
 
 	public Double getMenorPreco() {
@@ -120,20 +132,14 @@ public class ProdutoDTO {
 		this.fotos = fotos;
 	}
 
-	public List<CorProduto> getCores() {
-		return cores;
+	
+
+	public List<CorTamProduto> getCorTamProdutos() {
+		return corTamProdutos;
 	}
 
-	public void setCores(List<CorProduto> cores) {
-		this.cores = cores;
-	}
-
-	public List<TamanhoProduto> getTamanhos() {
-		return tamanhos;
-	}
-
-	public void setTamanhos(List<TamanhoProduto> tamanhos) {
-		this.tamanhos = tamanhos;
+	public void setCorTamProdutos(List<CorTamProduto> corTamProdutos) {
+		this.corTamProdutos = corTamProdutos;
 	}
 
 	public List<Favorito> getFavoritos() {

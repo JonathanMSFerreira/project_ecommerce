@@ -9,10 +9,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.ecommerce.domain.tamanhoproduto.TamanhoProduto;
+import com.ecommerce.domain.cortamproduto.CorTamProduto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
@@ -26,14 +27,18 @@ public class Tamanho {
   
 	private String tamanho;
 	
+	private String altura;
 	
 	
+	private String largura;
+	
+	
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "tamanho", cascade = CascadeType.ALL)
-    private List<TamanhoProduto> produtos;
+    private List<CorTamProduto> corTamProdutos;
 	
 	
-
-
 
 	public Long getId() {
 		return id;
@@ -45,18 +50,33 @@ public class Tamanho {
 	}
 
 
-
-	
-	
-	
-
-	public List<TamanhoProduto> getProdutos() {
-		return produtos;
+	public String getAltura() {
+		return altura;
 	}
 
 
-	public void setProdutos(List<TamanhoProduto> produtos) {
-		this.produtos = produtos;
+	public void setAltura(String altura) {
+		this.altura = altura;
+	}
+
+
+	public String getLargura() {
+		return largura;
+	}
+
+
+	public void setLargura(String largura) {
+		this.largura = largura;
+	}
+
+
+	public List<CorTamProduto> getCorTamProdutos() {
+		return corTamProdutos;
+	}
+
+
+	public void setCorTamProdutos(List<CorTamProduto> corTamProdutos) {
+		this.corTamProdutos = corTamProdutos;
 	}
 
 

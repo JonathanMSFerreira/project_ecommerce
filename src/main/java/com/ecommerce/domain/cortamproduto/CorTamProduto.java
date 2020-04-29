@@ -1,33 +1,71 @@
-package com.ecommerce.domain.corproduto;
+package com.ecommerce.domain.cortamproduto;
 
 
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.ecommerce.domain.cores.Cor;
+import com.ecommerce.domain.fotos.FotoProduto;
 import com.ecommerce.domain.produtos.Produto;
+import com.ecommerce.domain.tamanhos.Tamanho;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
 @Entity
-public class CorProduto {
+public class CorTamProduto {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
   
+
 	@ManyToOne
     private Cor cor;
 	
 	
 	
+	
+	@ManyToOne
+    private Tamanho tamanho;
+	
+	
+	
+	@JsonIgnore
 	@ManyToOne
     private Produto produto;
+	
+	
+	
+	private Integer qtdEstoque;
+	
+	
+
+	
+    @OneToMany(mappedBy = "corTamProduto", cascade = CascadeType.ALL)
+    private List<FotoProduto> fotos;
+	
+	
+	
+	
+
+	public List<FotoProduto> getFotos() {
+		return fotos;
+	}
+
+
+	public void setFotos(List<FotoProduto> fotos) {
+		this.fotos = fotos;
+	}
 
 
 	public Long getId() {
@@ -37,6 +75,28 @@ public class CorProduto {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	
+	
+
+	public Tamanho getTamanho() {
+		return tamanho;
+	}
+
+
+	public void setTamanho(Tamanho tamanho) {
+		this.tamanho = tamanho;
+	}
+
+
+	public Integer getQtdEstoque() {
+		return qtdEstoque;
+	}
+
+
+	public void setQtdEstoque(Integer qtdEstoque) {
+		this.qtdEstoque = qtdEstoque;
 	}
 
 
@@ -77,7 +137,7 @@ public class CorProduto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		CorProduto other = (CorProduto) obj;
+		CorTamProduto other = (CorTamProduto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -1,4 +1,4 @@
-package com.ecommerce.domain.tamanhoproduto;
+package com.ecommerce.domain.categoriaproduto;
 
 
 
@@ -8,13 +8,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.ecommerce.domain.categorias.Categoria;
 import com.ecommerce.domain.produtos.Produto;
-import com.ecommerce.domain.tamanhos.Tamanho;
 
 
 
 @Entity
-public class TamanhoProduto {
+public class CategoriaProduto {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,14 +22,13 @@ public class TamanhoProduto {
 
   
 	@ManyToOne
-    private Tamanho tamanho;
+    private Categoria categoria;
 	
-	
-	
+
 	@ManyToOne
     private Produto produto;
 
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -50,14 +49,13 @@ public class TamanhoProduto {
 	}
 
 
-
-	public Tamanho getTamanho() {
-		return tamanho;
+	public Categoria getCor() {
+		return categoria;
 	}
 
 
-	public void setTamanho(Tamanho tamanho) {
-		this.tamanho = tamanho;
+	public void setCor(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 
@@ -78,7 +76,7 @@ public class TamanhoProduto {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TamanhoProduto other = (TamanhoProduto) obj;
+		CategoriaProduto other = (CategoriaProduto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

@@ -12,7 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import com.ecommerce.domain.corproduto.CorProduto;
+import com.ecommerce.domain.cortamproduto.CorTamProduto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -23,17 +24,14 @@ public class Cor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-  
 	private String cor;
+
 	
-	
-	
+	@JsonIgnore
 	@OneToMany(mappedBy = "cor", cascade = CascadeType.ALL)
-    private List<CorProduto> produtos;
+    private List<CorTamProduto> corTamProdutos;
 	
 	
-
-
 	public Long getId() {
 		return id;
 	}
@@ -44,17 +42,13 @@ public class Cor {
 	}
 
 
-
-
-
-	
-	public List<CorProduto> getProdutos() {
-		return produtos;
+	public List<CorTamProduto> getCorTamProdutos() {
+		return corTamProdutos;
 	}
 
 
-	public void setProdutos(List<CorProduto> produtos) {
-		this.produtos = produtos;
+	public void setCorTamProdutos(List<CorTamProduto> corTamProdutos) {
+		this.corTamProdutos = corTamProdutos;
 	}
 
 
