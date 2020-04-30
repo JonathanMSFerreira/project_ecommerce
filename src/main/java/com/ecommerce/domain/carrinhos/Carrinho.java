@@ -30,9 +30,9 @@ public class Carrinho {
     private List<CarrinhoProduto> produtos;
 	
 	
-	
-	@ManyToOne
-	private User user;
+//	
+//	@ManyToOne
+//	private User user;
 	
 	
 	public Long getId() {
@@ -46,15 +46,15 @@ public class Carrinho {
 
 
 	
-	
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//	
+//	public User getUser() {
+//		return user;
+//	}
+//
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 
 	public List<CarrinhoProduto> getProdutos() {

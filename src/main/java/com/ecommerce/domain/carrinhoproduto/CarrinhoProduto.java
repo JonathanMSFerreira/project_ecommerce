@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 
 import com.ecommerce.domain.carrinhos.Carrinho;
 import com.ecommerce.domain.produtos.Produto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -21,11 +22,13 @@ public class CarrinhoProduto {
     private Long id;
 
   
+	@JsonIgnore
 	@ManyToOne
     private Carrinho carrinho;
 	
 	
 	
+	@JsonIgnore
 	@ManyToOne
     private Produto produto;
 

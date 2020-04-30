@@ -22,18 +22,17 @@ public class CategoriaProdutoService {
     }
 
     public CategoriaProduto getCategoriaProdutoById(Long id) {
-        Optional<CategoriaProduto> carrinho = rep.findById(id);
-        return carrinho.orElseThrow(() -> new ObjectNotFoundException("Carrinho não encontrada"));
+        Optional<CategoriaProduto> catProdutos = rep.findById(id);
+        return catProdutos.orElseThrow(() -> new ObjectNotFoundException("Categoria dos Produtos não encontrada"));
     }
 //
 //    public List<ProdutoDTO> getCarrosByTipo(String tipo) {
 //        return rep.findByTipo(tipo).stream().map(ProdutoDTO::create).collect(Collectors.toList());
 //    }
 
-    public CategoriaProduto insert(CategoriaProduto fotos) {
-        Assert.isNull(fotos.getId(),"Não foi possível inserir o registro");
-
-        return rep.save(fotos);
+    public CategoriaProduto insert(CategoriaProduto cp) {
+    
+        return rep.save(cp);
     }
 //
 //    public ProdutoDTO update(Produto produto, Long id) {

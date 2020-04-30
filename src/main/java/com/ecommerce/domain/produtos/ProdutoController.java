@@ -46,8 +46,7 @@ public class ProdutoController {
 
         ProdutoDTO c = service.insert(produto);
 
-        URI location = getUri(c.getId());
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.ok(c);
     }
 
     private URI getUri(Long id) {

@@ -24,16 +24,18 @@ public class ProdutoDTO {
 	    
 	    private byte[] fotoPrincipal;
 	    
-	    private Double menorPreco;
-	    
+	   
 	    private Boolean emPromocao;
 	    
-	    private Double maiorPreco;
+	    private Double precoCompra;
 	    
-	    private Integer qtdEstoque;
+	    private Double precoVenda;
+	    
+	    private Double precoPromocao;
+	    
+	     
+	    private Integer qtdTotal;
 	  
-	    private List<FotoProduto> fotos;
-		
 	  
 	  
 	    private List<CorTamProduto> corTamProdutos;
@@ -65,13 +67,6 @@ public class ProdutoDTO {
 	
 	
 
-	public Integer getQtdEstoque() {
-		return qtdEstoque;
-	}
-
-	public void setQtdEstoque(Integer qtdEstoque) {
-		this.qtdEstoque = qtdEstoque;
-	}
 
 	public String getTitulo() {
 		return titulo;
@@ -100,13 +95,6 @@ public class ProdutoDTO {
 		this.fotoPrincipal = fotoPrincipal;
 	}
 
-	public Double getMenorPreco() {
-		return menorPreco;
-	}
-
-	public void setMenorPreco(Double menorPreco) {
-		this.menorPreco = menorPreco;
-	}
 
 	public Boolean getEmPromocao() {
 		return emPromocao;
@@ -116,23 +104,42 @@ public class ProdutoDTO {
 		this.emPromocao = emPromocao;
 	}
 
-	public Double getMaiorPreco() {
-		return maiorPreco;
-	}
+	
 
-	public void setMaiorPreco(Double maiorPreco) {
-		this.maiorPreco = maiorPreco;
-	}
-
-	public List<FotoProduto> getFotos() {
-		return fotos;
-	}
-
-	public void setFotos(List<FotoProduto> fotos) {
-		this.fotos = fotos;
-	}
 
 	
+
+	public Double getPrecoCompra() {
+		return precoCompra;
+	}
+
+	public void setPrecoCompra(Double precoCompra) {
+		this.precoCompra = precoCompra;
+	}
+
+	public Double getPrecoVenda() {
+		return precoVenda;
+	}
+
+	public void setPrecoVenda(Double precoVenda) {
+		this.precoVenda = precoVenda;
+	}
+
+	public Double getPrecoPromocao() {
+		return precoPromocao;
+	}
+
+	public void setPrecoPromocao(Double precoPromocao) {
+		this.precoPromocao = precoPromocao;
+	}
+
+	public Integer getQtdTotal() {
+		return qtdTotal;
+	}
+
+	public void setQtdTotal(Integer qtdTotal) {
+		this.qtdTotal = qtdTotal;
+	}
 
 	public List<CorTamProduto> getCorTamProdutos() {
 		return corTamProdutos;

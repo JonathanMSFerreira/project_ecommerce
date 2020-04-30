@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -31,8 +32,10 @@ public class Categoria {
 	private byte[] foto;
 	
 	
+	
+	@JsonIgnore
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
-    private List<CategoriaProduto> categorias;
+    private List<CategoriaProduto> categoriaProdutos;
 	
 
 	public Long getId() {
@@ -68,13 +71,15 @@ public class Categoria {
 	}
 
 
-	public List<CategoriaProduto> getCategorias() {
-		return categorias;
+
+
+	public List<CategoriaProduto> getCategoriaProdutos() {
+		return categoriaProdutos;
 	}
 
 
-	public void setCategorias(List<CategoriaProduto> categorias) {
-		this.categorias = categorias;
+	public void setCategoriaProdutos(List<CategoriaProduto> categoriaProdutos) {
+		this.categoriaProdutos = categoriaProdutos;
 	}
 
 

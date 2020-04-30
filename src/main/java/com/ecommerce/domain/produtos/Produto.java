@@ -3,13 +3,16 @@ package com.ecommerce.domain.produtos;
 
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 import com.ecommerce.domain.carrinhos.CarrinhoProduto;
@@ -34,6 +37,8 @@ public class Produto {
   
     private String descricao;
     
+    
+   
     private byte[] fotoPrincipal;
     
     private Double precoCompra;
@@ -48,51 +53,58 @@ public class Produto {
     
      
     private Integer qtdTotal;
-    
-    
+        
 
+    @JsonIgnore
     @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
     private List<CorTamProduto> corTamProdutos;
-    
-  
-    
-    @JsonIgnore
-    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<Favorito> favoritos;
-    
-    
-    @JsonIgnore
-	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<CarrinhoProduto> carrinhos;
-    
+//    
+//  
+//    
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+//    private List<Favorito> favoritos;
+//    
+//    
+//    @JsonIgnore
+//	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
+//    private List<CarrinhoProduto> carrinhos;
+//    
     
 	
+    
+ 
     @JsonIgnore
 	@OneToMany(mappedBy = "produto", cascade = CascadeType.ALL)
-    private List<CategoriaProduto> categorias;
+    private List<CategoriaProduto> categoriaProdutos;
 	
 	
 		
-	public List<CategoriaProduto> getCategorias() {
-		return categorias;
-	}
-	public void setCategorias(List<CategoriaProduto> categorias) {
-		this.categorias = categorias;
-	}
-	public List<CarrinhoProduto> getCarrinhos() {
-		return carrinhos;
-	}
-	public void setCarrinhos(List<CarrinhoProduto> carrinhos) {
-		this.carrinhos = carrinhos;
-	}
-	public List<Favorito> getFavoritos() {
-		return favoritos;
-	}
-	public void setFavoritos(List<Favorito> favoritos) {
-		this.favoritos = favoritos;
-	}
-
 	
+    
+    
+public List<CategoriaProduto> getCategoriaProdutos() {
+		return categoriaProdutos;
+	}
+	public void setCategoriaProdutos(List<CategoriaProduto> categoriaProdutos) {
+		this.categoriaProdutos = categoriaProdutos;
+	}
+	//	public List<CarrinhoProduto> getCarrinhos() {
+//		
+//		
+//		return carrinhos;
+//	}
+//	public void setCarrinhos(List<CarrinhoProduto> carrinhos) {
+//		this.carrinhos = carrinhos;
+//	}
+//	public List<Favorito> getFavoritos() {
+//		return favoritos;
+//	}
+//	public void setFavoritos(List<Favorito> favoritos) {
+//		this.favoritos = favoritos;
+//	}
+//
+//	
 	public List<CorTamProduto> getCorTamProdutos() {
 		return corTamProdutos;
 	}

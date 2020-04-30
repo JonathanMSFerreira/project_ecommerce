@@ -20,16 +20,16 @@ public class CategoriaProdutoController {
     @GetMapping()
     public ResponseEntity get() {
      
-    	List<CategoriaProduto> carrinhos = service.getCategoriaProdutos();
-        return ResponseEntity.ok(carrinhos);
+    	List<CategoriaProduto> catProdutos = service.getCategoriaProdutos();
+        return ResponseEntity.ok(catProdutos);
     
     }
 
     @GetMapping("/{id}")
     public ResponseEntity get(@PathVariable("id") Long id) {
     
-    	CategoriaProduto tamanhos = service.getCategoriaProdutoById(id);
-        return ResponseEntity.ok(tamanhos);
+    	CategoriaProduto catProdutos = service.getCategoriaProdutoById(id);
+        return ResponseEntity.ok(catProdutos);
     }
 
 //    @GetMapping("/tipo/{tipo}")
@@ -41,13 +41,12 @@ public class CategoriaProdutoController {
 //    }
 
     @PostMapping
-    @Secured({ "ROLE_ADMIN" })
-    public ResponseEntity post(@RequestBody CategoriaProduto tamanho) {
+  //  @Secured({ "ROLE_ADMIN" })
+    public ResponseEntity post(@RequestBody CategoriaProduto categoriaProduto) {
 
-    	CategoriaProduto c = service.insert(tamanho);
+    	CategoriaProduto c = service.insert(categoriaProduto);
 
-        URI location = getUri(c.getId());
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.ok(c);
     }
 
     private URI getUri(Long id) {

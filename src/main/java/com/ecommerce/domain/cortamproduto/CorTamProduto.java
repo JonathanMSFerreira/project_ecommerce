@@ -28,13 +28,12 @@ public class CorTamProduto {
     private Long id;
 
   
-
+	@JsonIgnore
 	@ManyToOne
     private Cor cor;
 	
 	
-	
-	
+	@JsonIgnore
 	@ManyToOne
     private Tamanho tamanho;
 	

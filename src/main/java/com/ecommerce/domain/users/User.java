@@ -9,6 +9,7 @@ import com.ecommerce.domain.carrinhos.Carrinho;
 import com.ecommerce.domain.categoriaproduto.CategoriaProduto;
 import com.ecommerce.domain.enderecos.Endereco;
 import com.ecommerce.domain.favoritos.Favorito;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -17,7 +18,9 @@ import java.util.List;
 @Entity
 @Data
 public class User implements UserDetails {
-    @Id
+   
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -44,29 +47,32 @@ public class User implements UserDetails {
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles;
 
-    
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Favorito> favoritos;
+//    
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private List<Favorito> favoritos;
   
     
     
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Endereco> enderecos;
-    
-    
-    
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Carrinho> carrinhos;
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private List<Endereco> enderecos;
+//    
+//    
+//    
+//    @JsonIgnore
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private List<Carrinho> carrinhos;
     
     
    
-    public List<Favorito> getFavoritos() {
-		return favoritos;
-	}
-
-	public void setFavoritos(List<Favorito> favoritos) {
-		this.favoritos = favoritos;
-	}
+//    public List<Favorito> getFavoritos() {
+//		return favoritos;
+//	}
+//
+//	public void setFavoritos(List<Favorito> favoritos) {
+//		this.favoritos = favoritos;
+//	}
 
 	public Long getId() {
 		return id;
@@ -100,14 +106,14 @@ public class User implements UserDetails {
 		this.senha = senha;
 	}
 
-
-	public List<Endereco> getEnderecos() {
-		return enderecos;
-	}
-
-	public void setEnderecos(List<Endereco> enderecos) {
-		this.enderecos = enderecos;
-	}
+//
+//	public List<Endereco> getEnderecos() {
+//		return enderecos;
+//	}
+//
+//	public void setEnderecos(List<Endereco> enderecos) {
+//		this.enderecos = enderecos;
+//	}
 
 	public String getUrlFotoPerfil() {
 		return urlFotoPerfil;

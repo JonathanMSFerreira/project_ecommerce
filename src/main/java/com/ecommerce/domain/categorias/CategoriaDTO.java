@@ -29,7 +29,7 @@ public class CategoriaDTO {
 		
 		
 		
-	    private List<CategoriaProduto> categorias;
+	    private List<CategoriaProduto> categoriaProdutos;
 		
 		
 		
@@ -106,8 +106,8 @@ public class CategoriaDTO {
 
 
 
-	public List<CategoriaProduto> getCategorias() {
-		return categorias;
+	public List<CategoriaProduto> getCategoriaProdutos() {
+		return categoriaProdutos;
 	}
 
 
@@ -115,10 +115,16 @@ public class CategoriaDTO {
 
 
 
-	public void setCategorias(List<CategoriaProduto> categorias) {
-		this.categorias = categorias;
+	public void setCategoriaProdutos(List<CategoriaProduto> categoriaProdutos) {
+		this.categoriaProdutos = categoriaProdutos;
 	}
 
+
+
+
+
+
+	
 
     
 }

@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 
 import com.ecommerce.domain.produtos.Produto;
 import com.ecommerce.domain.users.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -21,13 +22,14 @@ public class Favorito {
     private Long id;
 
   
-	@ManyToOne
-    private User user;
+//	@JsonIgnore
+//	@ManyToOne
+//    private User user;
 	
-	
-	
-	@ManyToOne
-    private Produto produto;
+//	
+//	@JsonIgnore
+//	@ManyToOne
+//    private Produto produto;
 	
 	
 	
@@ -56,28 +58,28 @@ public class Favorito {
 	}
 
 
-	public Produto getProduto() {
-		return produto;
-	}
-
-
-	public void setProduto(Produto produto) {
-		this.produto = produto;
-	}
+//	public Produto getProduto() {
+//		return produto;
+//	}
+//
+//
+//	public void setProduto(Produto produto) {
+//		this.produto = produto;
+//	}
 
 
 	
 	
 
-
-	public User getUser() {
-		return user;
-	}
-
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+//
+//	public User getUser() {
+//		return user;
+//	}
+//
+//
+//	public void setUser(User user) {
+//		this.user = user;
+//	}
 
 
 	@Override

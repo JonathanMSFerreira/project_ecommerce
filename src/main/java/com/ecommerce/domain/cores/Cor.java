@@ -24,11 +24,12 @@ public class Cor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+	
 	private String cor;
 
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "cor", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cor", cascade = CascadeType.REFRESH)
     private List<CorTamProduto> corTamProdutos;
 	
 	

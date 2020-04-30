@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 
 import com.ecommerce.domain.categorias.Categoria;
 import com.ecommerce.domain.produtos.Produto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 
@@ -21,10 +22,12 @@ public class CategoriaProduto {
     private Long id;
 
   
+	@JsonIgnore
 	@ManyToOne
     private Categoria categoria;
 	
 
+	@JsonIgnore
 	@ManyToOne
     private Produto produto;
 
